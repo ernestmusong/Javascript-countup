@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/b42bc5ce06.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .image-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #cont-2 {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 500px;
+        width: 100%;
+        background: linear-gradient(rgba(63, 208, 212, 0.5), rgba(0, 0, 0, 0.7)),
+          url(https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80)
+            center/cover no-repeat;
+        /* background-repeat: no-repeat; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cont-2">
+      <div class="image-text">
+        <h1
+          class="value text-warning text-uppercase display-2"
+          style="font-weight: bold"
+          data-target="12000"
+        >
+          0
+        </h1>
+        <h4 class="text-white text-uppercase">students</h4>
+      </div>
+      <div class="image-text">
+        <h1
+          class="value text-warning text-uppercase display-2"
+          style="font-weight: bold"
+          data-target="9000"
+        >
+          0
+        </h1>
+        <h4 class="text-white text-uppercase">views</h4>
+      </div>
+      <div class="image-text">
+        <h1
+          class="value text-warning text-uppercase display-2"
+          style="font-weight: bold"
+          data-target="6000"
+        >
+          0
+        </h1>
+        <h4 class="text-white text-uppercase">countries reached</h4>
+      </div>
+    </div>
+    <script>
+      const counters = document.querySelectorAll(".value");
+      const speed = 600;
+      counters.forEach((counter) => {
+        const updateCount = () => {
+          const target = +counter.getAttribute("data-target");
+          const count = +counter.innerText;
+
+          const inc = target / speed;
+          console.log(count);
+          if (count < target) {
+            counter.innerText = count + inc;
+            setTimeout(updateCount, 1);
+          } else {
+            count.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    </script>
+  </body>
+</html>
